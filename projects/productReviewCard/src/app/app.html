@@ -1,0 +1,19 @@
+<div class="fullbody">
+  <div class="flip-container" [class.flipped]="isFlipped">
+      <div class="header">
+        <h1>Product Review Card</h1>
+      </div>
+      <div class="body">
+        <img [src]="imageUrl" class="flip-image" style="width: 200px;">
+        <h2>Name:{{productName}}</h2>
+        <h2>Prise:{{productPrise}}</h2>
+      </div>
+  </div>
+    <div class="button">
+      <button (click)="clickHere()">{{count}}like</button>
+    </div>
+    <form>
+      <input type="text" [(ngModel)]="textYourComment" name="comment" placeholder="comments">
+      <P>comments:{{textYourComment}}</P>
+    </form>
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "directives": {
+    "productReviewCard": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "directives:build:production"
+              "buildTarget": "productReviewCard:build:production"
             },
             "development": {
-              "buildTarget": "directives:build:development"
+              "buildTarget": "productReviewCard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,6 +90,6 @@
     }
   },
   "cli": {
-    "analytics": "b634d7f9-2550-4b01-b4b5-2f2852d18ce7"
+    "analytics": false
   }
 }

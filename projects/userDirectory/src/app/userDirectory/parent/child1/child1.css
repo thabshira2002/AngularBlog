@@ -1,0 +1,9 @@
+p{
+  font-size: large;
+  font-weight: bolder;
+
+}
+p:first-child{
+    color: rgba(15, 12, 14, 0.936);
+    
+}

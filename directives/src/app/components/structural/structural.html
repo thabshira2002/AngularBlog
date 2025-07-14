@@ -1,0 +1,38 @@
+<p>structural works!</p>
+<p *ngIf="Admin">hloo admin</p>
+<p *ngIf="!Admin">hloo user</p>
+
+<!-- create a button ,when we click the login button it change into log out and click the log out change in to log in (if condition)-->
+<button *ngIf="!log"(click)="clickMe()">Log in</button>
+<button *ngIf="log" (click)="clickMe()">Log out</button>
+
+<!-- list using array and objects (for loop)-->
+
+<ul>
+  <li *ngFor="let item of list">
+    {{item}}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let student of name">
+    {{student.name}}{{student.age}}
+  </li>
+</ul>
+
+<!-- switch condition -->
+
+<div [ngSwitch]="selectedColor">
+  <p *ngSwitchCase="'red'">You selected Red!</p>
+  <p *ngSwitchCase="'green'">You selected Green!</p>
+  <p *ngSwitchCase="'blue'">You selected Blue!</p>
+  <p *ngSwitchDefault>Color not found.</p>
+</div>
+
+
+
+<div [ngSwitch]="userRole">
+   <p *ngSwitchCase="'admin'">Welcome, Admin!</p>
+   <p *ngSwitchCase="'user'">Welcome, User!</p>
+   <p *ngSwitchDefault>Welcome, Guest!</p>
+</div>

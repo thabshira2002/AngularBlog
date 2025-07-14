@@ -1,0 +1,3 @@
+<app-child1 *ngFor="let user of users" [DataFromParent]="user" (delete)="receiveEmitter($event)"></app-child1>
+
+<!-- <app-child1 (delete)="receiveEmitter($event)"></app-child1> -->

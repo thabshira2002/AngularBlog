@@ -1,0 +1,17 @@
+<h1>TO DO LIST</h1>
+
+<input type="text" [(ngModel)]="addThings"  placeholder="make your list">
+<button (click)="clickme()">Add</button>
+
+<li>
+  <ul *ngFor="let item of listedItems;let i = index">
+    <span [ngStyle]="{'text-decoration':item.isComplete?'line-through':'none'}">{{item.things}}</span>
+    
+    <button (click)="enter(i)">    completed</button>
+    <span *ngIf="!item.isComplete">      ⏳</span>>
+    <button (click)="slice()">delete</button>
+  </ul>
+</li>
+
+<p *ngIf="listedItems.length === 0">No Task Available</p>
+
