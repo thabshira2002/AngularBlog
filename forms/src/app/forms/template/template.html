@@ -1,8 +1,15 @@
-<form #tempform="ngForm" (ngSubmit)="onSubmit()">
+<form #tempform="ngForm" (ngSubmit)="onSubmit(tempform)">
 
-    <input type="text" placeholder="name" name="name" [(ngModel)]="formTemplate.name"><br>
-    <input type="email" placeholder="email" name="email" [(ngModel)]="formTemplate.email"><br>
-    <input type="password" placeholder="password" name="password" [(ngModel)]="formTemplate.password"><br>
+    <input type="text" placeholder="name" name="name" [(ngModel)]="formTemplate.name" required #nameref="ngModel"><br>
+    <!-- <p *ngIf="tempform.controls['name'].invalid && tempform.controls['name'].touched" >*Name is Required</p> -->
+    <!-- <p *ngIf="nameref.invalid && nameref.touched">*name is required</p> -->
+    <p *ngIf="nameref.errors?.['required']&& nameref.touched">*name is required</p>
+    <p></p>
+    <input type="email" placeholder="email" name="email" [(ngModel)]="formTemplate.email" required #emailRef="ngModel" email><br>
+    <p *ngIf="emailRef.errors?.['required'] && emailRef.touched">*Email is required</p>
+    <p *ngIf="emailRef.errors?.['email']">*Enter Valid Email</p>
+    <input type="password" placeholder="password" name="password" [(ngModel)]="formTemplate.password" required><br>
+    <p>*password is required</p>
     <button type="submit">submit</button>
 
 </form>
