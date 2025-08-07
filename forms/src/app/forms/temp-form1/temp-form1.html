@@ -1,0 +1,46 @@
+<form #tempForm="ngForm" (ngSubmit)="onSubmit(tempForm)">
+
+
+    <input type="text" placeholder="Enter your name" name="Name"  
+    [(ngModel)]="TempForm1.Name" 
+    required  
+    minlength="3" 
+    #nameRef="ngModel"
+    [ngClass]="{'invalid':nameRef.invalid && nameRef.touched}">
+    <p *ngIf="nameRef.errors?.['required'] && nameRef.touched">*name required</p>
+    <p *ngIf="nameRef.errors?.['minlength']">*minimum three charecter needed</p>
+
+
+
+    <input type="email" placeholder="Enter your Email" name="Email" 
+    [(ngModel)]="TempForm1.Email"
+     #emailRef="ngModel"
+      required 
+      email
+       [ngClass]="{'invalid':emailRef.invalid && emailRef.touched}"><br>
+    <p *ngIf="emailRef.errors?.['required'] && emailRef.touched">*Email is required</p>
+    <p *ngIf="emailRef.errors?.['email']">*Enter Valid Email</p>
+
+
+
+    <input type="number" placeholder="Enter your number" name="number" 
+    [(ngModel)]="TempForm1.phone_Number" 
+    pattern="^[0-9]{10}" 
+    #numberRef="ngModel"
+     [ngClass]="{'invalid':numberRef.invalid && numberRef.touched}"><br>
+    <p *ngIf="numberRef.errors?.['pattern']">*10 digit required</p>
+
+
+    <input type="text" placeholder="Enter your message" name="message" 
+    [(ngModel)]="TempForm1.Message" 
+    required
+    #messageRef="ngModel"
+     minlength="10"
+    [ngClass]="{'invalid':messageRef.invalid && messageRef.touched}"><br>
+    <p *ngIf="messageRef.errors?.['required']&& messageRef.touched">*message required</p>
+    <p *ngIf="messageRef.errors?.['minlength']">*minimum 10 charecters</p>
+
+    <button type="submit">submit</button>
+    <p *ngIf="submitted && tempForm.valid">form successfully submitted</p>
+
+</form>

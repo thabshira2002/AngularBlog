@@ -1,0 +1,22 @@
+<form [formGroup]="userform" (ngSubmit)="onsubmit()">
+    <input type="text" id="name" placeholder="enter name" formControlName="name" ><br>
+    <div *ngIf="userform.get('name').invalid && userform.get('name').touched">
+        <small *ngIf="userform.get('name').errors?.['required']">*name is required</small>
+    </div>
+    <small *ngIf="userform.get('name').errors?.['minlength']">*min length is 3 char</small>
+
+    <input type="email" id="email" placeholder="enter email" formControlName="email"><br>
+    <div *ngIf="userform.get('email').invalid && userform.get('email').touched">
+        <small *ngIf="userform.get('email').errors?.['required']">emial is required</small>
+        <small *ngIf="userform.get('email').errors?.['email']"></small>
+    </div>
+   
+    <input type="number" id="number" placeholder="enter num" formControlName="number"><br>
+    <div *ngIf="userform.get('number').invalid   && userform.get('number').touched">
+        <small *ngIf="userform.get ('number').errors?.['required']">*number is required </small>
+        <small *ngIf="userform.get ('number').errors?.['minlength']">*number is required</small>
+    </div>
+    <button type="submit" [disabled]="userform.invalid">
+        submit
+    </button>
+</form>

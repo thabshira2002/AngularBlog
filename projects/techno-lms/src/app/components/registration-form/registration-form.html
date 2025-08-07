@@ -1,0 +1,46 @@
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+<h2>User Registration Form</h2>
+<input type="text" name="name" placeholder="Enter Your Name" formControlName="name"><br>
+<p *ngIf="userForm.get('name')?.errors?.['required'] && userForm.get('name')?.touched">*name is required</p>
+<p *ngIf="userForm.get('name')?.errors?.['minlength']">*Atleast 3 charecter need</p>
+
+<input type="email" name="email" placeholder="Enter Your Email" formControlName="email"><br>
+<p *ngIf="userForm.get('email')?.errors?.['required'] && userForm.get('email')?.touched" >*email is required</p>
+<p *ngIf="userForm.get('email')?.errors?.['email']" >*email is required</p>
+
+<input type="password" name="password" placeholder=" Enter Your Password" formControlName="password"><br>
+<p *ngIf="userForm.get('password')?.errors?.['required'] && userForm.get('password')?.touched" >*password is required</p>
+<p *ngIf="userForm.get('password')?.errors?.['minlength']" >*minimum length should be 6</p>
+
+<input type="password" name="confirmPassword" placeholder="Confirm Your Password" formControlName="confirmPassword"><br>
+<p *ngIf="userForm.get('confirmPassword')?.errors?.['required']  && userForm.get('confirmPassword')?.touched">* confirm the password</p>
+
+<input type="number" name="phoneNumber" placeholder="Enter the Phone Number" formControlName="phoneNumber"><br>
+<p *ngIf="userForm.get('phoneNumber')?.errors?.['required'] && userForm.get('phoneNumber')?.touched">*phone number required</p>
+<p *ngIf="userForm.get('phoneNumber')?.errors?.['minlength']">*10 digit should be needed</p>
+
+<h3>Select Your Gender</h3>
+<label>
+<input type="radio" name="gender" formControlName="gender" value="Male">Male
+</label>
+<label>
+<input type="radio" name="gender" formControlName="gender" value="Female">Female
+</label>
+<label>
+<input type="radio" name="gender" formControlName="gender" value="Other">Other
+</label>
+
+<p *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.errors?.['required']" >*gender is required</p>
+
+  <select formControlName="courseName" name="courseName">
+    <option value="">Select Course</option>
+    <option value="Angular">Angular</option>
+    <option value="python">python</option>
+    <option value="flutter">flutter</option>
+  </select>
+  <p *ngIf="userForm.touched && userForm.errors?.['required']" >*Course is required</p>
+
+<button type="submit" [disabled]="userForm.invalid">Submit</button>
+
+</form>

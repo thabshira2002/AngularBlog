@@ -8,8 +8,9 @@
     <input type="email" placeholder="email" name="email" [(ngModel)]="formTemplate.email" required #emailRef="ngModel" email><br>
     <p *ngIf="emailRef.errors?.['required'] && emailRef.touched">*Email is required</p>
     <p *ngIf="emailRef.errors?.['email']">*Enter Valid Email</p>
-    <input type="password" placeholder="password" name="password" [(ngModel)]="formTemplate.password" required><br>
-    <p>*password is required</p>
+    <input type="password" placeholder="password" name="password"  appPasswordStrength [(ngModel)]="formTemplate.password" required #passwordRef="ngModel"><br>
+    <p *ngIf="passwordRef.errors?.['required']">*password is required</p>
+    <p *ngIf="passwordRef.errors?.['passwordStrength']">*enter valied password</p>
     <button type="submit">submit</button>
 
 </form>

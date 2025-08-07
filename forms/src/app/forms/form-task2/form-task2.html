@@ -1,0 +1,50 @@
+<form #tempForm="ngForm" (ngSubmit)="onSubmit(tempForm)">
+
+
+<input type="text" placeholder="Enter your name" required minlength="3" #nameref="ngModel" [(ngModel)]="formList.Name"  name="Name"
+[ngClass]="{'invali':nameref.invalid && nameref.touched}"><br>
+<p *ngIf="nameref.errors?.['required'] && nameref.touched">*name required</p>
+<p *ngIf="nameref.errors?.['minlength']">*minimum three charecter needed</p>
+
+<input type="email" placeholder="Enter your Email" name="email" email [(ngModel)]="formList.Email" required #emailref="ngModel"
+[ngClass]="{'invali':emailref.invalid && emailref.touched}"><br>
+<p *ngIf="emailref.errors?.['required'] && emailref.touched">*Email is required</p>
+<p *ngIf="emailref.errors?.['email']">*Enter Valid Email</p>
+
+<input type="text" placeholder="Text The Message" name="message"[(ngModel)]="formList.Message" required  minlength="20" #messageref="ngModel"
+[ngClass]="{'invali':messageref.invalid && messageref.touched}"><br>
+<p *ngIf="messageref.errors?.['required'] && messageref.touched">message required</p>
+<p *ngIf="messageref.errors?.['minlength']">*minimum 20 char needed</p>
+
+<h4>Please rate our service:</h4>
+<div *ngFor="let r of ratings ">
+<input type="radio" name="rating" [value]="r" [(ngModel)]="formList.Rating"  required  #ratingref="ngModel" 
+[ngClass]="{'invali':emailref.invalid && emailref.touched}">
+{{r}}
+<p *ngIf="ratingref.errors?.['required'] && ratingref.touched">*rating is required</p>
+</div>
+
+
+<input type="number" placeholder="Your Age" name="age"[(ngModel)]="formList.Age" required min="18" #numref="ngModel"
+[ngClass]="{'invali':numref.invalid && numref.touched}"><br>
+<p *ngIf="numref.errors?.['required'] && numref.touched">*number is required</p>
+<p *ngIf="numref.errors?.['min']">*minimum age is 18</p>
+
+  <select name="country" [(ngModel)]="formList.Country" required #countryref="ngModel" >
+    <option value="" disabled selected>Select your country</option>
+    <option value="India" >India</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Canada">Canada</option>
+    <option value="Australia">Australia</option>
+  </select>
+
+  <div *ngIf="countryref.errors?.['required'] && !formList.Country">
+    <p style="color: red;">*Country is required</p>
+  </div>
+
+<button type="submit">submit</button>
+<p *ngIf="submitted && tempForm.valid"></p>
+
+
+</form>
