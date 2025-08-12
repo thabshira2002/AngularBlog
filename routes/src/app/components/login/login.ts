@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../services/auth';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { Auth } from '../../services/auth';
 export class Login {
   constructor(private auth: Auth) {}
 login() {
-this.auth.login();
-}
+    this.auth.login();
+    
+  }
 
 }

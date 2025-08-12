@@ -9,16 +9,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './cloths.css'
 })
 export class Cloths {
+toWomen() {
+this.menRoute.navigate(['women'])
+}
 
 constructor(private menRoute: Router) {}
-// toWomen() {
-//     this.menRout
-// }
+
 
 
 
 Tomen() {
-this.menRoute.navigate(['men','women']);
+this.menRoute.navigate(['men']);
 }
 
 }
